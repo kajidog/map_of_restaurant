@@ -23,7 +23,7 @@ export default function Map(props) {
           {hasLocation ? <p>通信中</p> : <p> </p>}
           {clickShop !== null ? (
             clickShop.lat === 0 ? (
-              <h3
+              <h4
                 style={{
                   textAlign: "center",
                   color: "red",
@@ -31,7 +31,7 @@ export default function Map(props) {
                 }}
               >
                 店の位置情報は登録されていません
-              </h3>
+              </h4>
             ) : null
           ) : null}
           <Atlas

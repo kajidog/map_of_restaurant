@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Td, Th } from "../style/StoreInformation";
+import { Table, Td, Th, BackButton } from "../style/StoreInformation";
 
 export default function StoreInformation(props) {
   //店一覧に戻る
@@ -54,8 +54,8 @@ export default function StoreInformation(props) {
   };
 
   const Data = info => (
-    <div style={{ border: "solid 1px black", padding: "10px" }}>
-      <button onClick={back}>戻る</button>
+    <div style={{ padding: "30px" }}>
+      <BackButton onClick={back}>戻る</BackButton>
       <h2 style={{}}>{info.name}</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {info.image_url.shop_image1 !== "" ? (
@@ -98,5 +98,5 @@ export default function StoreInformation(props) {
       )}
     </div>
   );
-  return <div>{props.display ? Data(props.data) : null}</div>;
+  return <div>{props.display && Data(props.data)}</div>;
 }

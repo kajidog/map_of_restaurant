@@ -7,7 +7,7 @@ export default function SmallCard(props) {
   };
   const { j, i, value } = props;
   return (
-    <List data-number={100 * j + i} onClick={ClickCard} key={"smallCard_" + i}>
+    <List data-number={100 * j + i} onClick={ClickCard} key={"smallCard_" + i} id={"store_" + 100 * j + i}>
       {Object.keys(value.image_url.shop_image1).length ? (
         <Img width="300px" url={value.image_url.shop_image1} />
       ) : Object.keys(value.image_url.shop_image2).length ? (

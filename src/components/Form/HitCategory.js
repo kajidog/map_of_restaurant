@@ -1,10 +1,11 @@
 import React from "react";
-import { ConditionList } from "../../style/ConditionForm";
+import { ConditionList, Heading } from "../../style/ConditionForm";
 export default function HitCategory(props) {
-  const { category, hit, data, action, tag } = props;
+  const { category, hit, data, action, tag, formHeading } = props;
   //ヒットの一覧の表示
   return (
     <div>
+      <Heading>{formHeading}</Heading>
       {data.err ? (
         <p>データを取得できませんでした</p>
       ) : data.comunication ? (

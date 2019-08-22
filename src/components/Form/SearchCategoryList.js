@@ -93,13 +93,14 @@ export default function SearchCategoryList(props) {
   } = props;
 
   return (
-    <div>
+    <div style={{padding:"30px"}}>
       <HitCategory
         category={categoryC}
         hit={categoryC.hit}
         data={{ data: conditions }}
         action={AddConditionsTop}
         tag={{ tag1: "conditions", tag2: "value" }}
+        formHeading={"条件"}
       />
       <HitCategory
         category={categoryS}
@@ -111,6 +112,7 @@ export default function SearchCategoryList(props) {
         }}
         action={AddCategorySTop}
         tag={{ tag1: "category_s", tag2: "category_s_name" }}
+        formHeading={"カテゴリーS"}
       />
       <HitCategory
         category={categoryL}
@@ -122,7 +124,8 @@ export default function SearchCategoryList(props) {
         }}
         action={AddCategoryLTop}
         tag={{ tag1: "category_l", tag2: "category_l_name" }}
-      />
+        formHeading={"カテゴリーL"}
+    />
     </div>
   );
 }

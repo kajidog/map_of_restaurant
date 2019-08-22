@@ -7,7 +7,7 @@ export default function HitPage(props) {
   // クリックされて店の情報を表示
   function ClickShop(e) {
     const getAttribute = e.currentTarget.getAttribute("data-number") - 0;
-
+    getScrollLocations(getAttribute);
     const b =
       props.response[Math.floor(getAttribute / 100)].rest[getAttribute % 100];
     props.ClickShop(b.name, b.latitude - 0, b.longitude - 0);
@@ -21,6 +21,11 @@ export default function HitPage(props) {
       props.response[Math.floor(getAttribute / 100)].rest[getAttribute % 100]
     );
   }
+  function getScrollLocations(getAttribute) {
+    const whatIDo = document.getElementById("store_" + getAttribute);
+    console.log(whatIDo)
+    whatIDo.scrollIntoView();
+  }
 
   const { response, comunication } = props;
 
@@ -30,9 +35,9 @@ export default function HitPage(props) {
       {response.map((value, j) =>
         value.rest.map((value, i) =>
           cerect !== 100 * j + i ? (
-            <SmallCard j={j} i={i} value={value} action={ClickShop} />
+            <SmallCard ref={i*j} j={j} i={i} value={value} action={ClickShop} />
           ) : (
-            <BigCard j={j} i={i} value={value} action={ToStoreInformation} />
+            <BigCard ref={i*j} j={j} i={i} value={value} action={ToStoreInformation} />
           )
         )
       )}

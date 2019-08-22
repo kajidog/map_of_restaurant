@@ -24,3 +24,24 @@ export const Img = styled.div`
 Img.defaultProps = {
   width: "auto"
 };
+export const BackButton = styled.p`
+  background-color: #FFFFFF;
+  border:1px solid #999999;
+  border-radius: 2px;
+  color: #333333;
+  display: block;
+  font-size: 14px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  width: 150px;
+
+  &:hover {
+  background-color: #999999;
+  color: #FFFFFF;
+  }
+`

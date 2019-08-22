@@ -126,6 +126,7 @@ export default function DefaultCategoryList(props) {
         action={AddConditionsTop}
         hide={displayC}
         tag={{ tag1: "conditions", tag2: "value" }}
+        formHeading={"条件"}
       />
       <CategoryListForm
         category={categoryS}
@@ -138,6 +139,7 @@ export default function DefaultCategoryList(props) {
         action={AddCategorySTop}
         hide={displayS}
         tag={{ tag1: "category_s", tag2: "category_s_name" }}
+        formHeading={"カテゴリーS"}
       />
       <CategoryListForm
         category={categoryL}
@@ -150,6 +152,7 @@ export default function DefaultCategoryList(props) {
         action={AddCategoryLTop}
         hide={displayL}
         tag={{ tag1: "category_l", tag2: "category_l_name" }}
+        formHeading={"カテゴリーL"}
       />
     </>
   );

@@ -3,7 +3,7 @@ import HitCategory from "./HitCategory";
 import { ShowandHide } from "../../style/ConditionForm";
 
 export default function CategoryListForm (props) {
-    const { category, hit, data, action, tag, hide } = props;
+    const { category, hit, data, action, tag, hide, formHeading } = props;
     return (
       <div
         style={{
@@ -17,6 +17,7 @@ export default function CategoryListForm (props) {
           data={data}
           action={action}
           tag={tag}
+          formHeading={formHeading}
         />
         {category.hide ? (
           <ShowandHide type="button" value="隠す" onClick={hide} />
