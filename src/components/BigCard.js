@@ -1,67 +1,99 @@
 import React from "react";
-import { Button, Img, DetailsButton, StoreName } from "../style/StoreList";
+import { styles } from "../style/bigCard";
 
 export default function BigCard(props) {
   const ClickCard = e => {
     props.action(e);
   };
 
-  const { j, i, value } = props;
+  const { j, i, value, display_mode } = props;
+  const {
+    BigCardFlame,
+    DescriptionArea,
+    StoreTable,
+    AccessButton,
+    Img
+  } = styles;
 
   const Access = (data, reserve) =>
     !!Object.keys(data).length && (
-      <Button>
+      <AccessButton>
         {data}
         {reserve}
-      </Button>
+      </AccessButton>
     );
-
   return (
-    <div
+    <BigCardFlame
       key={"bigCard_" + i}
-      style={{
-        margin: "25px auto",
-        width: "80%",
-        boxShadow: "3px 3px 10px 4px rgba(170, 170, 170, 0.2)",
-        padding: "10px",
-        borderRadius: "0.65rem"
-      }}
+      mode={display_mode}
+      id={"store_" + 100 * j + i}
+      data-number={100 * j + i}
+      onClick={ClickCard}
     >
-      <StoreName size="19px">{value.name}</StoreName>
-      <div style={{ padding: "5px", display: "flex" }}>
-        {!!Object.keys(value.image_url.shop_image1).length && (
-          <Img width="300px" url={value.image_url.shop_image1} />
-        )}
-        {!!Object.keys(value.image_url.shop_image2).length && (
-          <Img width="300px" url={value.image_url.shop_image2} />
-        )}
-      </div>
-      <div>
-        <p style={{ textAlign: "center" }}>{value.pr.pr_short}</p>
-        {value.opentime !== "" && <p style={{}}>営業時間　{value.opentime}</p>}
-        {value.budget !== "" && <p style={{}}>平均予算　{value.budget}円</p>}
-        <p>アクセス</p>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {Access(value.access.line)}
-          {Access(value.access.station)}
-          {Access(value.access.station_exit)}
-          {Access(value.access.walk, "分")}
-        </div>
-      </div>
-      <div>
-        <p>カテゴリー</p>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {value.code.category_name_l.map(
-            (value, i) => value !== "" && <Button key={i}>{value}</Button>
+      <DescriptionArea>
+        <StoreTable borderColor="rgba(164, 164, 164, 0.74)">
+          <caption>{value.name}</caption>
+          <tbody>
+            {value.opentime !== "" && (
+              <tr>
+                <th>Business hours</th>
+                <td>
+                  <p>{value.opentime}</p>
+                </td>
+              </tr>
+            )}
+            {value.budget !== "" && (
+              <tr>
+                <th>Average budget</th>
+                <td>
+                  <p>{value.budget}円</p>
+                </td>
+              </tr>
+            )}
+            <tr>
+              <th>Access</th>
+              <td>
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                  <ul style={{ padding: "0", margin: "0" }}>
+                    {Access(value.access.line)}
+                    {Access(value.access.station)}
+                    {Access(value.access.station_exit)}
+                    {Access(value.access.walk, "分")}
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Category</th>
+              <td>
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                  {value.code.category_name_l.map(
+                    (value, i) => value !== "" && <div key={i}>{value}</div>
+                  )}
+                  {value.code.category_name_s.map(
+                    (value, i) => value !== "" && <div key={i}>{value}</div>
+                  )}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </StoreTable>
+        <div
+          style={{
+            width: "100%",
+            padding: "5px",
+            display: "flex",
+            overflowY: "scroll"
+          }}
+        >
+          {!!Object.keys(value.image_url.shop_image1).length && (
+            <Img width="300px" url={value.image_url.shop_image1} />
           )}
-          {value.code.category_name_s.map(
-            (value, i) => value !== "" && <Button key={i}>{value}</Button>
+          {!!Object.keys(value.image_url.shop_image2).length && (
+            <Img width="300px" url={value.image_url.shop_image2} />
           )}
         </div>
-      </div>
-      <DetailsButton data-number={100 * j + i} onClick={ClickCard}>
-        詳しく見る
-      </DetailsButton>
-    </div>
+      </DescriptionArea>
+    </BigCardFlame>
   );
 }

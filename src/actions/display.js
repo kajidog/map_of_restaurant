@@ -19,10 +19,24 @@ export const Back = () => {
     type: "BACK"
   };
 };
-
+export const Actions = {
+  change_display_mode: mode => {
+    return {
+      type: "NEXT_DISPLAY_MODE",
+      mode: mode
+    };
+  }
+};
 export const Information = data => {
   return {
     type: "INFORMATION",
     data: data
+  };
+};
+
+export const chgangeStoreinMode = nextMode => {
+  return {
+    type: "CHANGE_STOREIN_MODE",
+    mode: nextMode
   };
 };

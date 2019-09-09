@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Lists } from "../style/StoreList";
+import { Lists, StoreListFlame } from "../style/StoreList";
 import HitPage from "../containers/HitPage";
 export default function StoreList(props) {
   const [node, setNode] = useState(null);
@@ -45,15 +45,14 @@ export default function StoreList(props) {
     }
   }
 
-  const { response, err, comunication, display, height } = props;
+  const { response, err, comunication, display_mode } = props;
 
   return (
-    <div>
-      {display && (
+    <StoreListFlame mode={display_mode}>
+      {
         <div
           style={{
-            borderTop: "1px solid rgb(148, 148, 148)",
-            height: `${height}`
+            height: "calc(100vh - 65px)"
           }}
         >
           <Lists onScroll={scrollEvent} ref={node => setNode(node)}>
@@ -74,13 +73,13 @@ export default function StoreList(props) {
             ) : response[0] !== null ? (
               <HitPage response={response} comunication={comunication} />
             ) : comunication ? (
-              <p>通信中</p>
+              <p></p>
             ) : (
-              <p>現在地の取得中</p>
+              <p></p>
             )}
           </Lists>
         </div>
-      )}
-    </div>
+      }
+    </StoreListFlame>
   );
 }

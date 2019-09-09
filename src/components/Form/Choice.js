@@ -7,7 +7,8 @@ export default function Choice(props) {
     let categoryS = "";
     categorySChoice.forEach((value, i) => {
       if (i !== 0) categoryS = categoryS + ",";
-      categoryS = categoryS + props.categorySData.category_s[value].category_s_code;
+      categoryS =
+        categoryS + props.categorySData.category_s[value].category_s_code;
     });
     if (categoryS !== "") {
       categoryS = "&category_s=" + categoryS;
@@ -15,7 +16,8 @@ export default function Choice(props) {
     let categoryL = "";
     categoryLChoice.forEach((value, i) => {
       if (i !== 0) categoryL = categoryL + ",";
-      categoryL = categoryL + props.categoryLData.category_l[value].category_l_code;
+      categoryL =
+        categoryL + props.categoryLData.category_l[value].category_l_code;
     });
     if (categoryL !== "") {
       categoryL = "&category_l=" + categoryL;

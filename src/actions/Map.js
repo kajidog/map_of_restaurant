@@ -5,10 +5,10 @@ const CategorySmallSearchAPI =
   "https://api.gnavi.co.jp/master/CategorySmallSearchAPI/v3/";
 const CategoryLargeSearchAPI =
   "https://api.gnavi.co.jp/master/CategoryLargeSearchAPI/v3/";
-//const APP_ID = "363e78b1887b75592b0650a24e1f0f20";
-const APP_ID = "1094f71471f7d8e223c87afa7a730e74";
-const WAIT = 3000;
-const TIMEOUT = 4000;
+const APP_ID = "363e78b1887b75592b0650a24e1f0f20";
+//const APP_ID = "1094f71471f7d8e223c87afa7a730e74";
+const WAIT = 2000;
+const TIMEOUT = 3000;
 //カテゴリーの情報取得
 export const CategoryS = () => {
   return async dispatch => {
@@ -83,8 +83,8 @@ const getPresentLocation = () => {
     return {
       type: "SET_CURRNT_LOCATION",
       payload: {
-        lat: lat,
-        lng: lng
+        lat: 34.699318,
+        lng: 135.192074
       }
     };
   }

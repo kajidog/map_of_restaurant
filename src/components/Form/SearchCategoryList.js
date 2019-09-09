@@ -93,7 +93,7 @@ export default function SearchCategoryList(props) {
   } = props;
 
   return (
-    <div style={{padding:"30px"}}>
+    <div style={{ padding: "30px", display: "flex" }}>
       <HitCategory
         category={categoryC}
         hit={categoryC.hit}
@@ -125,7 +125,7 @@ export default function SearchCategoryList(props) {
         action={AddCategoryLTop}
         tag={{ tag1: "category_l", tag2: "category_l_name" }}
         formHeading={"カテゴリーL"}
-    />
+      />
     </div>
   );
 }

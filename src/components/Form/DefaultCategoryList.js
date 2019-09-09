@@ -4,7 +4,9 @@ import CategoryListForm from "./CategoryListForm";
 export default function DefaultCategoryList(props) {
   function Display(hide, lavel) {
     let newHitTop = [];
-    hide ? (newHitTop = [0, 1, 2, 3, 4]) : lavel.forEach((value, i) => newHitTop.push(i));
+    hide
+      ? (newHitTop = [0, 1, 2, 3, 4])
+      : lavel.forEach((value, i) => newHitTop.push(i));
     return { hide: !hide, hitTop: newHitTop };
   }
 
@@ -47,7 +49,8 @@ export default function DefaultCategoryList(props) {
     let categoryS = "";
     categorySChoice.forEach((value, i) => {
       if (i !== 0) categoryS = categoryS + ",";
-      categoryS = categoryS + props.categorySData.category_s[value].category_s_code;
+      categoryS =
+        categoryS + props.categorySData.category_s[value].category_s_code;
     });
     if (categoryS !== "") {
       categoryS = "&category_s=" + categoryS;
@@ -55,7 +58,8 @@ export default function DefaultCategoryList(props) {
     let categoryL = "";
     categoryLChoice.forEach((value, i) => {
       if (i !== 0) categoryL = categoryL + ",";
-      categoryL = categoryL + props.categoryLData.category_l[value].category_l_code;
+      categoryL =
+        categoryL + props.categoryLData.category_l[value].category_l_code;
     });
     if (categoryL !== "") {
       categoryL = "&category_l=" + categoryL;

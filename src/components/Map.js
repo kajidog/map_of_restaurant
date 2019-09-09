@@ -15,62 +15,49 @@ export default function Map(props) {
     shadowAnchor: null
   });
 
-  const { display, hasLocation, clickShop, latlng } = props;
+  const { clickShop, latlng } = props;
   return (
     <div>
-      {display ? (
-        <div style={{ height: "30vh" }}>
-          {hasLocation ? <p>通信中</p> : <p> </p>}
-          {clickShop !== null ? (
-            clickShop.lat === 0 ? (
-              <h4
-                style={{
-                  textAlign: "center",
-                  color: "red",
-                  fontSize: "16px"
-                }}
-              >
-                店の位置情報は登録されていません
-              </h4>
-            ) : null
-          ) : null}
-          <Atlas
-            center={{
-              lat: clickShop.lat,
-              lng: clickShop.lng
-            }}
-            length={5}
-            ref={mapRef}
-            zoom={17}
-          >
-            <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {clickShop !== null ? (
-              clickShop.lat !== 0 ? (
-                <Marker
-                  position={{
-                    lat: clickShop.lat,
-                    lng: clickShop.lng
-                  }}
-                >
-                  <Popup>
-                    <span>{clickShop.name}</span>
-                  </Popup>
-                </Marker>
-              ) : null
-            ) : null}
-            <Marker
-              position={{
-                lat: latlng.lat,
-                lng: latlng.lng
+      {clickShop === null ||
+        (clickShop.lat === 0 || (
+          <div style={{ height: "30vh" }}>
+            <Atlas
+              center={{
+                lat: clickShop.lat,
+                lng: clickShop.lng
               }}
-              icon={myIcon}
-            />
-          </Atlas>
-        </div>
-      ) : null}
+              length={5}
+              ref={mapRef}
+              zoom={16}
+            >
+              <TileLayer
+                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {clickShop !== null ? (
+                clickShop.lat !== 0 ? (
+                  <Marker
+                    position={{
+                      lat: clickShop.lat,
+                      lng: clickShop.lng
+                    }}
+                  >
+                    <Popup>
+                      <span>{clickShop.name}</span>
+                    </Popup>
+                  </Marker>
+                ) : null
+              ) : null}
+              <Marker
+                position={{
+                  lat: latlng.lat,
+                  lng: latlng.lng
+                }}
+                icon={myIcon}
+              />
+            </Atlas>
+          </div>
+        ))}
     </div>
   );
 }

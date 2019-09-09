@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
   comunication: state.rest.comunication,
   perPge: state.rest.perPge,
   url: state.rest.add,
-  err: state.rest.err
+  err: state.rest.err,
+  display_mode: state.display.display_mode
 });
 
 const mapDispatchToProps = dispatch => {
