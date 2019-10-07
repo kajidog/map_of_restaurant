@@ -14,7 +14,7 @@ export default function App (props) {
   const {display_mode} = props
   useEffect(()=>{
 
-if(props.response[0] === null)props.getCurrentLocation();
+if(props.response[0]  === null)props.getCurrentLocation();
 getWindowSize(props);
 window.addEventListener("resize", () => {
   getWindowSize();

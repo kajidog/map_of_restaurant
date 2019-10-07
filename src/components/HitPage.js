@@ -31,7 +31,7 @@ export default function HitPage(props) {
   const { response, comunication, display_mode } = props;
 
   return (
-    <div style={{ margin: "10px 3%", padding: "10px 2%" }}>
+    <div style={{ margin: "10px 3%", padding: "10px 3%" }}>
       <p id={""}>{response[0].total_hit_count}件ヒット</p>
       {response.map((value, j) =>
         value.rest.map((value, i) =>

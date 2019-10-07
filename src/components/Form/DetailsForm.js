@@ -52,9 +52,7 @@ export default function DetailsForm(props) {
       </div>
       <Serchber />
 
-      <SearchCategoryListFlame
-
-      >
+      <SearchCategoryListFlame>
         {keyword !== "" ? (
           <div style={{ width: "100%" }}>
             <SearchCategoryList />

@@ -18,9 +18,10 @@ export function loacdComment(storeId) {
   };
 }
 function loadCharactersSuccess(snapshot) {
-  let comments = snapshot.val()
-  if(comments === null){
-    comments = {}}
+  let comments = snapshot.val();
+  if (comments === null) {
+    comments = {};
+  }
   return {
     type: "COMMENTS_RECEIVE_DATA",
     comments: comments
@@ -34,18 +35,17 @@ function loadCharactersError(error) {
 }
 
 export function addComments(newComment) {
-  newComment["created"] = libs.getCreaated();
-  const ref1 = firebaseDb.ref("comments/" + newComment.storeId);
+  if (newComment.coment.length < 100) {
+    newComment["created"] = libs.getCreaated();
+    const ref1 = firebaseDb.ref("comments/" + newComment.storeId);
 
-  return (dispatch, getState) => {
-
-
-
-    ref1.push(newComment).catch(error =>
-      dispatch({
-        type: "ADD_TASK_ERROR",
-        message: error.message
-      })
-    );
-  };
+    return (dispatch, getState) => {
+      ref1.push(newComment).catch(error =>
+        dispatch({
+          type: "ADD_TASK_ERROR",
+          message: error.message
+        })
+      );
+    };
+  }
 }

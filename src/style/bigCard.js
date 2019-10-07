@@ -4,17 +4,19 @@ export const styles = {
   BigCardFlame: styled.div`
     position: relative;
     margin: 30px auto;
-    padding: 20px 8%;
+
     background-color: white;
     ${props => {
       switch (props.mode) {
         case "mini":
           return `
-          width: 80%;
+          width: 93%;
+          padding: 20px 5%;
           `;
         case "normal":
           return `
         width: 100%;
+        padding: 20px 8%;
         `;
         default:
       }
@@ -93,12 +95,18 @@ export const styles = {
     list-style: none;
     margin-bottom: 5px;
   `,
-  Img: styled.img`
-    background-image: url(${props => props.url});
-    width: ${props => props.width};
-    height: ${props => props.width};
-    margin: 10px 40px;
-    background-size: cover;
-    flex-shrink: 0;
+  Img: styled.div`
+    width: 100%;
+    display: flex;
+    overflow-y: hidden;
+    height: auto;
+    & img {
+      max-height: 300px;
+      margin: 10px 3px;
+      min-height: 100%;
+      max-width: 100%;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+    }
   `
 };

@@ -73,9 +73,25 @@ export default function StoreList(props) {
             ) : response[0] !== null ? (
               <HitPage response={response} comunication={comunication} />
             ) : comunication ? (
-              <p></p>
+              <p
+                style={{
+                  color: "rgb(145, 145, 145)",
+                  paddingLeft: "1rem",
+                  margin: "0"
+                }}
+              >
+                通信中
+              </p>
             ) : (
-              <p></p>
+              <p
+                style={{
+                  color: "rgb(145, 145, 145)",
+                  paddingLeft: "1rem",
+                  margin: "0"
+                }}
+              >
+                現在地取得中...
+              </p>
             )}
           </Lists>
         </div>

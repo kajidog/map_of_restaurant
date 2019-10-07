@@ -93,7 +93,7 @@ export default function SearchCategoryList(props) {
   } = props;
 
   return (
-    <div style={{ padding: "30px", display: "flex" }}>
+    <div style={{ padding: "30px" }}>
       <HitCategory
         category={categoryC}
         hit={categoryC.hit}

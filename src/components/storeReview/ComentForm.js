@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { styles, Ster } from "../../style/storeReview";
 export default function ComentForm(props) {
   const [starCount, setStarcount] = useState(3);
-  const [comment, setComment] = useState("")
+  const [comment, setComment] = useState("");
   const [starCount1, setStarcount1] = useState(3);
   const { ComentFormFlame, SendButton } = styles;
-  const addComment = () =>{
+  const addComment = () => {
     setStarcount(3);
     setStarcount1(3);
     setComment("");
     props.addComments({
-      storeId:props.storeId,
+      storeId: props.storeId,
       evaluation: starCount,
-      coment: comment,
-    })
-  }
+      coment: comment
+    });
+  };
   return (
     <ComentFormFlame>
       <table>
@@ -73,13 +73,18 @@ export default function ComentForm(props) {
             <th>コメント</th>
             <td>
               <div>
-              <textarea onChange={(e)=>setComment(e.target.value)} value={comment}></textarea>
+                <textarea
+                  onChange={e => setComment(e.target.value)}
+                  value={comment}
+                ></textarea>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-      <SendButton onClick={addComment}><span>Send</span></SendButton>
+      <SendButton onClick={addComment}>
+        <span>Send</span>
+      </SendButton>
     </ComentFormFlame>
   );
 }

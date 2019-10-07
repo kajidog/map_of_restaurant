@@ -73,9 +73,9 @@ export const StoreinBody = styled.div`
         padding: 30px 5%;
 
         overflow-y: scroll;
-        overflow-x: scroll;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        height: 61vh;
+        height: calc(100vh - 250px);
         `;
           default:
         }
@@ -111,14 +111,13 @@ export const StoreInfoCard = styled.div`
 `;
           case "display":
             return `
-        border: 2px solid #969696;
         border-radius: .6rem;
           box-shadow: 3px 3px 10px 0px #4a4a4a5e, -3px -3px 10px 0px #4a4a4a5e;
           padding: 2px;
           margin-top: 40px;
           border: 2px solid #969696;
-          width: 90%;
-          margin: 40px auto;
+          width: 97%;
+          margin: 45px auto 0;
         `;
           default:
         }
@@ -137,6 +136,17 @@ export const StoreInformationFlame = styled.div`
   position: fixed;
   transition: 0.4s ease-in-out;
   margin: 0 auto;
+  & .kage-info {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  & > p {
+    padding-top: 30%;
+    text-align: center;
+    color: rgb(150, 150, 150);
+  }
   ${props => {
     switch (props.mode) {
       case "mini":
@@ -144,9 +154,10 @@ export const StoreInformationFlame = styled.div`
           case "hidden":
             return `
                 width: 100%;
-                top: 92vh;
+                top: calc(100vh - 4rem);
                 left: 0;
                 right: 0;
+                background-color: rgba(256, 256, 256, .5);
                 `;
           case "display":
             return `
@@ -156,7 +167,7 @@ export const StoreInformationFlame = styled.div`
                 right: 0;
                 height: calc(100% - 60px);
                 min-height: 40px;
-                overflow: scroll;
+                overflow-y: scroll;
                 background-color: rgba(164, 164, 164, .5);
                 -webkit-overflow-scrolling: touch;
               `;
@@ -169,7 +180,7 @@ export const StoreInformationFlame = styled.div`
           width: 60%;
           top: 60px;
           left: 40%;
-          overflow: scroll;
+          overflow-y: scroll;
           -webkit-overflow-scrolling: touch;
           height: 90%;
         `;

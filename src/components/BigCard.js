@@ -78,21 +78,14 @@ export default function BigCard(props) {
             </tr>
           </tbody>
         </StoreTable>
-        <div
-          style={{
-            width: "100%",
-            padding: "5px",
-            display: "flex",
-            overflowY: "scroll"
-          }}
-        >
+        <Img style={{}}>
           {!!Object.keys(value.image_url.shop_image1).length && (
-            <Img width="300px" url={value.image_url.shop_image1} />
+            <img className="IMG" src={value.image_url.shop_image1} alt="" />
           )}
           {!!Object.keys(value.image_url.shop_image2).length && (
-            <Img width="300px" url={value.image_url.shop_image2} />
+            <img className="IMG" src={value.image_url.shop_image2} alt="" />
           )}
-        </div>
+        </Img>
       </DescriptionArea>
     </BigCardFlame>
   );

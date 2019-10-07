@@ -7,7 +7,6 @@ const mapStateToProps = state => ({
   display: state.display.list,
   display_mode: state.display.display_mode,
   response: state.rest.response
-
 });
 
 const mapDispatchToProps = dispatch => {
