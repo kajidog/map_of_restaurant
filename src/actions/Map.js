@@ -5,10 +5,11 @@ const CategorySmallSearchAPI =
   "https://api.gnavi.co.jp/master/CategorySmallSearchAPI/v3/";
 const CategoryLargeSearchAPI =
   "https://api.gnavi.co.jp/master/CategoryLargeSearchAPI/v3/";
-const APP_ID = "c5262f1c10cd785e9c5316090f757af5";
+//const APP_ID = "c5262f1c10cd785e9c5316090f757af5";
+const APP_ID = "4d346185f882003e261abc425feff0b6";
 //const APP_ID = "1094f71471f7d8e223c87afa7a730e74";
-const WAIT = 4000;
-const TIMEOUT = 5000;
+const WAIT = 6000;
+const TIMEOUT = 10000;
 //カテゴリーの情報取得
 export const CategoryS = () => {
   return async dispatch => {
